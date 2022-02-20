@@ -14,4 +14,4 @@
 * Simple and easy to use with our [download server](https://github.com/SkyGamesFR/server)
 * Efficient and fast downloads
 
-<em><p align="center"><strong>Author: Darki</strong></p></em>
+<em><p align="center"><strong>Author: FullGreen</strong></p></em>
