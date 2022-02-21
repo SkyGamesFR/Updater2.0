@@ -5,7 +5,6 @@ import fr.skygames.updater.jsonmodels.Data;
 import fr.skygames.updater.jsonmodels.DataFile;
 import fr.skygames.updater.utils.ProgressBarHelper;
 import fr.skygames.updater.utils.Util;
-import org.jcp.xml.dsig.internal.dom.Utils;
 
 import java.io.BufferedReader;
 import java.io.File;
