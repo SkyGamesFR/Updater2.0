@@ -68,8 +68,9 @@ public class DownloadTask {
             throw new IOException("Server responded with " + status);
         }
         catch (IOException e) {
+            // System.out.println("1");
             if(destination.isFile())
-                return "Couldn't connect to server (" + e.getClass().getSimpleName() + ": '" + e.getMessage() + "') but have local file, assuming it's good";
+            return "Couldn't connect to server (" + e.getClass().getSimpleName() + ": '" + e.getMessage() + "') but have local file, assuming it's good";
             throw e;
         }
     }

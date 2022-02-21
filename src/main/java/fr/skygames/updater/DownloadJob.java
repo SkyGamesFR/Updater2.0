@@ -64,7 +64,8 @@ public class DownloadJob {
                         this.listener.onDownloadJobProgressChanged(this);
                     }
                 } catch (final IOException e) {
-                    System.err.println("Couldn't download " + task.getUrl() + " for job '" + name + "'");
+                    // System.out.println("2");
+                    System.err.println("Couldn't download " + task.getUrl().toString().replace("\0020", "%20").replace("#", "%23").replace(".var", "%2evar") + " for job '" + name + "'");
                     this.remainingFiles.add(task);
                 }
             }

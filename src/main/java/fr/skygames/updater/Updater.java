@@ -55,17 +55,17 @@ public class Updater {
         }
 
         for (final DataFile file : data.getFiles()) {
-            final File client_files = new File(folder, file.getPath());
+            final File client_files = new File(folder, file.getPath().replace("\u0020", "%20").replace("#", "%23").replace(".var", "%2Evar"));
 
             if (!client_files.exists() || !client_files.isFile()) {
-                job.addDownloadable(client_files, file.getHash(), file.getUrl());
+                job.addDownloadable(client_files, file.getHash(), file.getUrl().replace("\u0020", "%20").replace("#", "%23").replace(".var", "%2Evar"));
                 ProgressBarHelper.incrementTotalBytesNeedToDownload(file.getSize());
                 this.ignoredFiles.add(client_files.getAbsolutePath());
                 continue;
             }
             try {
                 if (!Util.getMD5(client_files).equals(file.getHash())) {
-                    job.addDownloadable(client_files, file.getHash(), file.getUrl());
+                    job.addDownloadable(client_files, file.getHash(), file.getUrl().replace("\u0020", "%20").replace("#", "%23").replace(".var", "%2Evar"));
                     ProgressBarHelper.incrementTotalBytesNeedToDownload(file.getSize());
                     this.ignoredFiles.add(client_files.getAbsolutePath());
                 } else {
