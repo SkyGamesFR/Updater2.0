@@ -55,7 +55,7 @@ public class Updater {
         }
 
         for (final DataFile file : data.getFiles()) {
-            final File client_files = new File(folder, file.getPath().replace("\u0020", "%20").replace("#", "%23").replace(".var", "%2Evar"));
+            final File client_files = new File(folder, file.getPath());
 
             if (!client_files.exists() || !client_files.isFile()) {
                 job.addDownloadable(client_files, file.getHash(), file.getUrl().replace("\u0020", "%20").replace("#", "%23").replace(".var", "%2Evar"));
