@@ -5,6 +5,7 @@ import fr.skygames.updater.jsonmodels.Data;
 import fr.skygames.updater.jsonmodels.DataFile;
 import fr.skygames.updater.utils.ProgressBarHelper;
 import fr.skygames.updater.utils.Util;
+import org.jcp.xml.dsig.internal.dom.Utils;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -65,6 +66,7 @@ public class Updater {
             }
             try {
                 if (!Util.getMD5(client_files).equals(file.getHash())) {
+                    System.out.println("File " + client_files.getName() + " has a bad hash '" + Util.getMD5(client_files) + "' hash on server => " + file.getHash());
                     job.addDownloadable(client_files, file.getHash(), file.getUrl().replace("\u0020", "%20").replace("#", "%23").replace(".var", "%2Evar"));
                     ProgressBarHelper.incrementTotalBytesNeedToDownload(file.getSize());
                     this.ignoredFiles.add(client_files.getAbsolutePath());
